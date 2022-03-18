@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit 2 Assessment</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <%if(list.length ==0){%>
+      <h3>There are no To Dos yet</h3>
+    <%}%>
+
+
+    <ul>
+      <%list.forEach(function(todo, index){%>
+        <%if(todo.done != "done"){%>
+          <li><%=todo.todo%> -NOT DONE</li><a href="/delete/<%=index%>">Delete</a>
+          <%}})%>
+      </ul>
+      <hr>
+    
+    <form method="POST" action="/todos">
+          <input type="text" name="todo" required></input>
+          <button>ADD TO DO</button>
+    </form>
+
+
+  </body>
+</html>
